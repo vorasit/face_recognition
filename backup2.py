@@ -27,45 +27,36 @@ d = datetime.datetime.now()
 print(d.day)
 
 t = 7   #วันก่อน
+a = 0
 # เปิดการใช้ webcam
 video_capture = cv2.VideoCapture(0)
 
+sql1 = "SELECT img FROM person"
+mycursor.execute(sql1)
+myresult1 = mycursor.fetchall()
+person1_image = []
+person1_face_encoding = []
+known_face_encodings = []
 
+for img in myresult1:
+    image_n = str(img)
+    n = image_n.strip("(',)") #ตัดสัญญาลักษณ์ออกจากข้อความ
+    print(n)
+    image = 'img/'+ str(n.strip())
 # โหลดภาพ Pin.jpg และให้ระบบจดจำใบหน้า
-person1_image = face_recognition.load_image_file("img/PIN.jpg")
-person1_face_encoding = face_recognition.face_encodings(person1_image)[0]
+    person1_image.append(face_recognition.load_image_file(image))
+    person1_face_encoding.append(face_recognition.face_encodings(person1_image[a])[0])
 
-# โหลดภาพ Sanya.jpg และให้ระบบจดจำใบหน้า
-person2_image = face_recognition.load_image_file("img/SANYA.jpg")
-person2_face_encoding = face_recognition.face_encodings(person2_image)[0]
 
-# โหลดภาพ .jpg และให้ระบบจดจำใบหน้า
-person3_image = face_recognition.load_image_file("img/KHEMMIKA.jpg")
-person3_face_encoding = face_recognition.face_encodings(person3_image)[0]
-
-# โหลดภาพ .jpg และให้ระบบจดจำใบหน้า
-person4_image = face_recognition.load_image_file("img/PIMPRAPA.jpg")
-person4_face_encoding = face_recognition.face_encodings(person4_image)[0]
-
-# โหลดภาพ .jpg และให้ระบบจดจำใบหน้า
-person5_image = face_recognition.load_image_file("img/PARN.jpg")
-person5_face_encoding = face_recognition.face_encodings(person5_image)[0]
-
-# สร้าง arrays ของคนที่จดจำและกำหนดชื่อ ตามลำดับ
-known_face_encodings = [
-    person1_face_encoding,
-    person2_face_encoding,
-    person3_face_encoding,
-    person4_face_encoding,
-    person5_face_encoding
-]
+    # สร้าง arrays ของคนที่จดจำและกำหนดชื่อ ตามลำดับ
+    known_face_encodings.append(person1_face_encoding[a])
+        
+    
+    a+1
 
 known_face_names = [
     "PIN",
-    "SANYA",
-    "KHEMMIKA",
-    "PIMPRAPA",
-    "PARN"
+    
 ]
 
 # ตัวแปรเริ่มต้น
@@ -103,8 +94,8 @@ while True:
 
             face_names.append(name)
 
-            sql1 = 'SELECT p_id FROM check_temp WHERE p_id = (%s) '
-            mycursor.execute(sql1,[name])
+            sql2 = 'SELECT p_id FROM check_temp WHERE p_id = (%s) '
+            mycursor.execute(sql2,[name])
             myresult = mycursor.fetchall()
             print(myresult)
             if name != "Unknown":
