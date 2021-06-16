@@ -53,11 +53,18 @@ for img in myresult1:
         
     
     a+1
+known_face_names =[]
 
-known_face_names = [
-    "PIN",
-    
-]
+sql3 = "SELECT p_id FROM person"
+mycursor.execute(sql3)
+myresult3 = mycursor.fetchall()
+for name_know in myresult3:
+    know = str(name_know)
+    k_n = know.strip("(',)")
+    known_face_names.append(k_n)
+
+
+
 
 # ตัวแปรเริ่มต้น
 face_locations = []
