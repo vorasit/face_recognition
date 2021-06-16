@@ -120,7 +120,11 @@ while True:
             if d.day != t:
                 print("test time")
                 os.system('python backup_db.py')
-                t = d.day             
+                t = d.day     
+                sql5 = "DELETE  FROM check_temp"     
+                mycursor.execute(sql5)  
+                mydb.commit()
+                print("Clear And Backup Success")
 
 
     process_this_frame = not process_this_frame
