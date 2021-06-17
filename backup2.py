@@ -61,6 +61,7 @@ myresult3 = mycursor.fetchall()
 for name_know in myresult3:
     know = str(name_know)
     k_n = know.strip("(',)")
+    print(k_n)
     known_face_names.append(k_n)
 
 
