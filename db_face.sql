@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 11:05 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Jun 17, 2021 at 11:43 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,30 +38,7 @@ CREATE TABLE `check_temp` (
 --
 
 INSERT INTO `check_temp` (`p_id`, `temp`, `check_in`) VALUES
-('John', '36', '1/1/2564'),
-('PIN', '36', '2021-06-08 09:11:52.007359'),
-('PIN', '36', '2021-06-08 09:11:52.848943'),
-('PIN', '36', '2021-06-08 09:11:53.263757'),
-('PIN', '36', '2021-06-08 09:11:53.708062'),
-('PIN', '36', '2021-06-08 09:11:54.142449'),
-('PIN', '36', '2021-06-08 09:11:54.597116'),
-('PIN', '36', '2021-06-08 09:11:55.057881'),
-('PIN', '36', '2021-06-08 09:11:55.520644'),
-('PIN', '36', '2021-06-08 09:11:55.961990'),
-('PIN', '36', '2021-06-08 09:11:56.394830'),
-('PIN', '36', '2021-06-08 09:15:41.835484'),
-('KHEMMIKA', '36', '2021-06-08 09:16:15.061737'),
-('PIN', '36', '2021-06-08 09:16:15.963940'),
-('KHEMMIKA', '36', '2021-06-08 09:16:16.423139'),
-('SANYA', '36', '2021-06-08 09:16:18.807659'),
-('PIN', '36', '2021-06-08 09:16:19.368365'),
-('KHEMMIKA', '36', '2021-06-08 09:16:19.826659'),
-('PIN', '36', '2021-06-08 09:16:20.687534'),
-('SANYA', '36', '2021-06-08 09:16:21.216805'),
-('KHEMMIKA', '36', '2021-06-08 09:16:21.717676'),
-('PIN', '36', '2021-06-08 09:16:25.664595'),
-('PIN', '36', '2021-06-08 09:22:18.766671'),
-('PIN', '36', '2021-06-08 09:41:45.482239');
+('PIN', '36', '2021-06-17 15:19:02.598257');
 
 -- --------------------------------------------------------
 
@@ -91,24 +68,22 @@ CREATE TABLE `person` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `person`
+--
+
+INSERT INTO `person` (`p_id`, `first_name`, `last_name`, `age`, `job`, `img`) VALUES
+('PIN', 'vorasit', 'phusuwan', '24', 'it', 'PIN.jpg'),
+('SANYA', 'Sanya', 'srisamut', '30', 'it', 'SANYA.jpg');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `login`
+-- Indexes for table `check_temp`
 --
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `check_temp`
+  ADD PRIMARY KEY (`p_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
