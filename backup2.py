@@ -1,3 +1,4 @@
+  
 from pymysql import NULL
 import face_recognition
 import cv2
@@ -42,7 +43,7 @@ for img in myresult1:
     image_n = str(img)
     n = image_n.strip("(',)") #ตัดสัญญาลักษณ์ออกจากข้อความ
     print(n)
-    image = 'img/'+ str(n.strip())
+    image = str(n)
 # โหลดภาพ Pin.jpg และให้ระบบจดจำใบหน้า
     person1_image.append(face_recognition.load_image_file(image))
     person1_face_encoding.append(face_recognition.face_encodings(person1_image[a])[0])
