@@ -51,9 +51,8 @@ for img in myresult1:
 
     # สร้าง arrays ของคนที่จดจำและกำหนดชื่อ ตามลำดับ
     known_face_encodings.append(person1_face_encoding[a])
-        
-    
-    a+1
+    a=a+1
+
 known_face_names =[]
 
 sql3 = "SELECT p_id FROM person"
@@ -65,9 +64,13 @@ for name_know in myresult3:
     print(k_n)
     known_face_names.append(k_n)
 
-
-
-
+"""
+known_face_names = [
+    "PIMPRAPA",
+    "PIN",
+    "SANYA"
+]
+"""
 # ตัวแปรเริ่มต้น
 face_locations = []
 face_encodings = []
